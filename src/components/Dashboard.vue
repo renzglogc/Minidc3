@@ -10,6 +10,7 @@
               <img class="golog-logo-white-1" :src="gologLogoWhite1" alt="golog logo white 1" />
               <div class="minidc-admin mulish-bold-white-19px">{{ minidcAdmin }}</div>
             </div>
+            <router-link to="dashboard">
             <div class="sidebar-list-dashboard">
               <div class="selected"></div>
               <img
@@ -19,6 +20,8 @@
               />
               <div class="title mulish-normal-white-16px">{{ title1 }}</div>
             </div>
+          </router-link>
+            <router-link to="ordertracker">
             <div class="sidebar-list-my-task">
               <img
                 class="vector"
@@ -29,6 +32,7 @@
                 <div class="title-1 mulish-normal-white-16px">{{ title2 }}</div>
               </a>
             </div>
+          </router-link>
             <sidebar-list-franchise-o :title="sidebarListFranchiseO1Props.title" />
             <sidebar-list-franchise-o
               :title="sidebarListFranchiseO2Props.title"

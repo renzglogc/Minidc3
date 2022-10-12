@@ -12,11 +12,13 @@
             <div class="flex-row-5">
               <img class="golog-logo-white-1-2" :src="gologLogoWhite1" alt="golog logo white 1" />
               <div class="minidc-admin-1 mulish-bold-white-19px">{{ minidcAdmin }}</div>
-            </div>
+            </div> 
+            <router-link to="dashboard">   
             <sidebar-list-franchise-o
               :title="sidebarListFranchiseO1Props.title"
               :className="sidebarListFranchiseO1Props.className"
             />
+          </router-link> 
             <div class="sidebar-list-my-task-1">
               <div class="overlap-group-6">
                 <a href="javascript:SubmitForm('form3')">
@@ -34,6 +36,7 @@
                 <div class="selected-1"></div>
               </div>
             </div>
+       
             <sidebar-list-franchise-o :title="sidebarListFranchiseO2Props.title" />
             <sidebar-list-franchise-o
               :title="sidebarListFranchiseO3Props.title"

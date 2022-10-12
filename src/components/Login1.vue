@@ -5,6 +5,7 @@
         <div class="overlap-group2-2">
           <cards-default />
           <div class="ellipse-4"></div>
+          <div v-if="!submitted">
           <button
               v-on:click.stop.prevent="submit"
               class="button-contained-primary-default"
@@ -13,25 +14,32 @@
               <span style="margin-left: 115px">Login</span>
             </button>
           <div class="textfield-label-textfield-default">
-            <div class="label mulish-bold-santas-gray-12px">{{ label }}</div>
+            <div class="label mulish-bold-santas-gray-12px">EMAIL</div>
             <div class="overlap-group-5">
               <input
                 class="textfield-31 mulish-normal-fiord-14px"
                 name="textfield"
+                v-model="email"
                 :placeholder="inputPlaceholder"
                 :type="inputType"
                 required
               />
             </div>
+            <div v-if="!error">
+              <div class="invalid-feedback" style="color: red">
+                A valid email is required!
+              </div>
+            </div>
           </div>
           <div class="textfield-label-icon-default">
-            <div class="label-1 mulish-bold-santas-gray-12px">{{ label }}</div>
+            <div class="label-1 mulish-bold-santas-gray-12px">PASSWORD</div>
             <div class="overlap-group1-2">
               <input
                 class="textfield-32 mulish-normal-fiord-14px"
                 name="textfield"
                 :placeholder="inputPlaceholder"
-                :type="inputType"
+                type="password"
+                v-model="password"
                 required
               /><img
                 class="icon-hide-active"
@@ -40,6 +48,7 @@
               />
             </div>
           </div>
+        </div>
           <p class="enter-your-email-and-password-below">
             {{ enterYourEmailAndPasswordBelow }}
           </p>
@@ -76,6 +85,63 @@ export default {
     "textfieldLabelTextfieldDefaultProps",
     "textfieldLabelIconDefaultProps",
   ],
+  data: function () {
+        return {
+            email : "",
+            emailBlured : false,
+            valid : false,
+            submitted : false,
+            password:"",
+            passwordBlured:false,
+            error:true,
+            error2:false
+        }
+    },
+ 
+    methods:{
+ 
+        validate : function(){
+            this.emailBlured = true;
+            this.passwordBlured = true;
+            if( this.validEmail(this.email) && this.validPassword(this.password)){
+                this.valid = true;
+                alert("successfully  login");
+            }
+
+        },
+ 
+        validEmail : function(email) {
+ 
+            var re = /(.+)@(.+){2,}\.(.+){2,}/;
+            if(re.test(email.toLowerCase())){
+                return true;
+            }
+            else{
+              this.error=false;
+
+            }
+ 
+        },
+ 
+        validPassword : function(password) {
+            if (password.length > 6) {
+                return true;
+
+            }
+            else
+            alert("Password must be 8 character");
+    
+    
+        },
+ 
+        submit : function(){
+            this.validate();
+            if(this.valid){
+                this.submitted = true;
+                this.$router.push('/dashboard');
+            }
+        }
+    }
 };
 </script>
 

@@ -23,6 +23,7 @@
         </div>
       </div>
     </div>
+    <router-link to="login">
     <div class="overlap-group-1">
       <img
         class="avatar-man-_header"
@@ -31,6 +32,7 @@
       />
       <div class="profile-circle"></div>
     </div>
+  </router-link>
   </div>
 </template>
 
